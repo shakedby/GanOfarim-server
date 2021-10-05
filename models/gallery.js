@@ -3,12 +3,7 @@ const Schema = mongoose.Schema;
 
 const Gallery = new Schema(
   {
-    photos: [
-      {
-        type: string,
-        ref: "Photo",
-      },
-    ],
+    photos: String,
   },
   { timestamps: true }
 );

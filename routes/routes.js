@@ -1,8 +1,9 @@
 const express = require("express");
-const { getGalery } = require("../controllers/galleryController");
+const { getGallery, addPhoto } = require("../controllers/galleryController");
 const router = express.Router();
 
-router.post("/gallery", getGalery);
+router.get("/gallery", getGallery);
+router.post("/gallery", addPhoto);
 
 module.exports = {
   routes: router,
