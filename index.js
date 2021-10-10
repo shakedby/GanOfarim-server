@@ -8,11 +8,13 @@ require("dotenv").config();
 
 const app = express();
 const mongoose = require("mongoose");
-// mongoose.set("useCreateIndex", true);
+const { getSystemErrorMap } = require("util");
+const mongo =
+  "mongodb+srv://shaked:shakedrazi@cluster0.fdtuh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 try {
   mongoose.connect(
-    process.env.MOMGO_DB,
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+    mongo,
+    { useNewUrlParser: true, useUnifiedTopology: true },
     () => {
       console.log("connected");
     }
@@ -25,7 +27,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api", Routes.routes);
-const port = process.env.PORT || 5000;
+const port = 5000;
 app.listen(port, () => {
   console.log("Server initiated succesfully");
 });

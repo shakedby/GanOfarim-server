@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Gallery = new Schema(
   {
-    photos: String,
+    url: String,
   },
   { timestamps: true }
 );
