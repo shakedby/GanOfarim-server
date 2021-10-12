@@ -9,7 +9,7 @@ const app = express();
 const mongoose = require("mongoose");
 const { getSystemErrorMap } = require("util");
 const mongo =
-  "mongodb+srv://shaked:shakedrazi@cluster0.fdtuh.mongodb.net/Database?retryWrites=true&w=majority";
+  "mongodb+srv://shaked:shakedrazi@cluster0.fdtuh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 try {
   mongoose.connect(
     mongo,
@@ -21,10 +21,9 @@ try {
 } catch (error) {
   console.log("could not connect");
 }
-app.use(express.json());
 app.use(cors());
-app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 app.use("/api", Routes);
 const port = 5000;
 app.listen(port, () => {

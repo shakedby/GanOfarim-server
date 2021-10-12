@@ -1,7 +1,7 @@
 const Gallery = require("../models/gallery");
 
 const add = (req, res) => {
-  console.log(req.body.url);
+  console.log(req.params.url);
   const photo = new Gallery({
     url: req.body.url,
   });
@@ -11,7 +11,7 @@ const add = (req, res) => {
       res.json({ message: "good" });
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       res.json({ message: "not good" });
     });
 };
@@ -20,7 +20,7 @@ const getGallery = (req, res) => {
     if (err) {
       return res.json({ status: 404 });
     } else {
-      return res.json({ status: 200, arr });
+      return res.json({ status: 200, gallerylist: arr });
     }
   });
 };

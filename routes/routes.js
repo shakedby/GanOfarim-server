@@ -6,10 +6,8 @@ const {
 } = require("../controllers/galleryController");
 const router = express.Router();
 
-//router.get("/gallery", getGallery);
-//router.post("/gallery", add);
-router.get("/gallerytest/:id", deletePhoto);
+router.get("/getallgal", getGallery);
+router.post("/addtogal", add);
+router.get("/deletegal/:id", deletePhoto);
 
-module.exports = {
-  routes: router,
-};
+module.exports = router;
