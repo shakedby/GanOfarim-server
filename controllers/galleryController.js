@@ -1,7 +1,7 @@
 const Gallery = require("../models/gallery");
 
 const add = (req, res) => {
-  console.log(req.params.url);
+  //console.log(req.body.url);
   const photo = new Gallery({
     url: req.body.url,
   });
